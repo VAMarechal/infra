@@ -16,7 +16,9 @@ pipeline {
         }
         stage('Creds Init') {
           steps {
-            echo "Password: ${params.AWS_ACCESS_KEY_ID}"            
+            sh 'export AWS_ACCESS_KEY_ID=${params.AWS_ACCESS_KEY_ID}'           
+            sh 'export AWS_SECRET_ACCESS_KEY=${params.AWS_SECRET_ACCESS_KEY}'  
+            sh 'export AWS_PROFILE=default'  
             }
         }
          stage('Terraform Apply') {
