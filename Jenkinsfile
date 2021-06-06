@@ -13,6 +13,8 @@ pipeline {
          stage('Terraform Apply') {
             steps {
                 sh 'echo "apply stage"'
+                sh 'echo "$AWS_ACCESS_KEY_ID "'
+                sh 'echo "profile = $AWS_PROFILE"'
                 sh "terraform apply --auto-approve"
             }
         }
