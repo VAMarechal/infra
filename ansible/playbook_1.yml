@@ -1,0 +1,26 @@
+---
+- name: Install Apache Web Server, upload web page example
+  hosts: Stage
+  become: yes
+
+  vars:
+    source_file: index.html
+    destin_file: /var/www/html
+
+
+  tasks:
+
+  - name: Install Apache Web Server on Debian Family
+    apt:  update_cache=yes name=apache2 state=latest
+
+  - name: Copy index.html to target server
+    copy: src={{ source_file }} dest={{ destin_file }} owner=ubuntu group=ubuntu mode=775 #0555
+
+  - name: Change owner
+    file: dest={{ destin_file }} state=directory owner=ubuntu group=ubuntu mode=775
+
+  - name: Start Apache and enable it during boot
+    service: name=apache2 state=started enabled=yes
+
+  - name: Restart Apache Debian
+    service: name=apache2 state=restarted
