@@ -1,0 +1,5 @@
+# chmod o=rwx /home/ubuntu/terraform/Fristyle_Jenkins
+cd /home/ubuntu/terraform/Fristyle_Jenkins
+# terraform init
+terraform plan
+terraform apply -auto-approve
