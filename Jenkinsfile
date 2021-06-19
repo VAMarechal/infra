@@ -7,16 +7,23 @@ pipeline {
     stages {
         stage('Terraform Init') {
           steps {
-            sh 'echo "init stage"'
-                sh "terraform init"
+              sh 'echo "init stage"'
+              sh "cd /home/ubuntu/terraform/Fristyle_Jenkins"
+              // sh "terraform init"
+            }
+        }
+        stage('Terraform Destroy') {
+          steps {
+              sh 'echo "destroy stage"'
+              sh "terraform destroy -auto-approve"
             }
         }
         stage('Terraform Plan') {
             steps {
                 sh 'echo "plan stage"'
-                sh 'echo "$AWS_ACCESS_KEY_ID "'
-                sh 'echo "profile = $AWS_PROFILE"'
-                sh 'hostname'
+                // sh 'echo "$AWS_ACCESS_KEY_ID "'
+                // sh 'echo "profile = $AWS_PROFILE"'
+                // sh 'hostname'
                 sh "terraform plan"
             }
         }
