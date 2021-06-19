@@ -15,12 +15,14 @@ pipeline {
         stage('Terraform Destroy') {
           steps {
               sh 'echo "destroy stage"'
+              sh "cd /home/ubuntu/terraform/Fristyle_Jenkins"
               sh "terraform destroy -auto-approve"
             }
         }
         stage('Terraform Plan') {
             steps {
                 sh 'echo "plan stage"'
+                sh "cd /home/ubuntu/terraform/Fristyle_Jenkins"
                 // sh 'echo "$AWS_ACCESS_KEY_ID "'
                 // sh 'echo "profile = $AWS_PROFILE"'
                 // sh 'hostname'
