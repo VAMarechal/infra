@@ -8,7 +8,7 @@ pipeline {
         stage('Terraform Init') {
           steps {
               sh 'echo "init stage"'
-              sh 'cd /home/ubuntu/terraform/Fristyle_Jenkins'
+              sh 'cd "/home/ubuntu/terraform/Fristyle_Jenkins"'
               sh 'ls -la'
               // sh "terraform init"
             }
@@ -23,12 +23,12 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 sh 'echo "plan stage"'
-                sh "cd /home/ubuntu/terraform/Fristyle_Jenkins"
+                sh "cd terraform"
                 // sh 'echo "$AWS_ACCESS_KEY_ID "'
                 // sh 'echo "profile = $AWS_PROFILE"'
                 // sh 'hostname'
                 sh "ls -la"
-                sh "terraform plan"
+                // sh "terraform plan"
             }
         }
         stage('Terraform Apply') {
