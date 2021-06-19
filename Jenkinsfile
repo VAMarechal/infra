@@ -24,6 +24,7 @@ pipeline {
                 // sh 'echo "$AWS_ACCESS_KEY_ID "'
                 // sh 'echo "profile = $AWS_PROFILE"'
                 // sh 'hostname'
+                sh "ls -la"
                 sh "terraform plan"
             }
         }
