@@ -8,8 +8,8 @@ pipeline {
         stage('Terraform Init') {
           steps {
               sh 'echo "init stage"'
-              sh "cd /home/ubuntu/terraform/Fristyle_Jenkins"
-              sh "ls -la"
+              sh 'cd /home/ubuntu/terraform/Fristyle_Jenkins'
+              sh 'ls -la'
               // sh "terraform init"
             }
         }
