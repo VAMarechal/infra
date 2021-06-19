@@ -8,7 +8,7 @@ pipeline {
         stage('Terraform Init') {
           steps {
               sh 'echo "init stage"'
-              sh 'cd "/home/ubuntu/terraform/Fristyle_Jenkins"'
+              sh 'chdir "/home/ubuntu/terraform/Fristyle_Jenkins"'
               sh 'ls -la'
               // sh "terraform init"
             }
@@ -16,7 +16,7 @@ pipeline {
         stage('Terraform Destroy') {
           steps {
               sh 'echo "destroy stage"'
-              sh "cd /home/ubuntu/terraform/Fristyle_Jenkins"
+              sh "chdir /home/ubuntu/terraform/Fristyle_Jenkins"
               sh "terraform destroy -auto-approve"
             }
         }
