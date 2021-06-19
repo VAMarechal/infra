@@ -8,27 +8,23 @@ pipeline {
         stage('Terraform Init') {
           steps {
               sh 'echo "init stage"'
-              sh 'chdir "/home/ubuntu/terraform/Fristyle_Jenkins"'
-              sh 'ls -la'
+              sh 'cd /home/ubuntu/terraform/Fristyle_Jenkins && ls -la'
               // sh "terraform init"
             }
         }
         stage('Terraform Destroy') {
           steps {
               sh 'echo "destroy stage"'
-              sh "chdir /home/ubuntu/terraform/Fristyle_Jenkins"
-              sh "terraform destroy -auto-approve"
+              sh "chdir /home/ubuntu/terraform/Fristyle_Jenkins && terraform destroy -auto-approve"
             }
         }
         stage('Terraform Plan') {
             steps {
                 sh 'echo "plan stage"'
-                sh "cd terraform"
                 // sh 'echo "$AWS_ACCESS_KEY_ID "'
                 // sh 'echo "profile = $AWS_PROFILE"'
                 // sh 'hostname'
-                sh "ls -la"
-                // sh "terraform plan"
+                sh "chdir /home/ubuntu/terraform/Fristyle_Jenkins && terraform plan"
             }
         }
         stage('Terraform Apply') {
