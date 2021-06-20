@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Trriggered start') {
           steps {
+              echo "Triggerrd stage"
               sh 'echo "Trriggered stage"'
             }
         }
